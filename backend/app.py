@@ -40,7 +40,18 @@ app.include_router(stress.router)
 app.include_router(fraud.router)
 app.include_router(journey.router)
 
-# Mount frontend build in production if present
+# Mount frontend build in production if present; otherwise provide a landing JSON response
 frontend_dist = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), "frontend", "dist")
-if os.path.exists(frontend_dist):
+if os.path.exists(frontend_dist) and os.path.isdir(frontend_dist):
     app.mount("/", StaticFiles(directory=frontend_dist, html=True), name="frontend")
+else:
+    @app.get("/")
+    async def root():
+        return {
+            "status": "online",
+            "service": "Paisa Saathi Backend API",
+            "version": "0.1.0",
+            "health_check": "/health",
+            "api_docs": "/docs",
+            "message": "FastAPI backend is running! Connect your Vercel frontend or visit /docs to test endpoints.",
+        }
