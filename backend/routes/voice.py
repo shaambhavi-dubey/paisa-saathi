@@ -55,7 +55,11 @@ def build_system_prompt(customer_id: Optional[str] = None, step: Optional[int] =
         "1. Bhasha: Saral Hindi ya Hinglish mein baat karein. Kathin banking shabdon ka prayog na karein.\n"
         "2. Lambai: Hamesha chhota aur spasht uttar dein (sirf 2-3 sentences).\n"
         "3. Tone: Sahayak, aadarpoorvak aur protsahak, bina kisi dabav ke.\n"
-        "4. Koshish karein ki grahak ko lage ki bank unki cashflow rhythm (bazaar ka din, fasal ka samay) ko samajhta hai."
+        "4. Koshish karein ki grahak ko lage ki bank unki cashflow rhythm (bazaar ka din, fasal ka samay) ko samajhta hai.\n"
+        "5. Loan aavedan ke steps: Agar grahak loan ke steps, prakriya ya aavedan ke baare mein pooche, toh unhe spasht batayein:\n"
+        "   Paisa Saathi par digital loan lene ke 5 aasan steps hain: 1) Bhasha chunav, 2) Data sahmati (Consent), 3) Pehchan pushti, 4) Mandi aay pushti, aur 5) Manpasand offer accept karna.\n"
+        "   Grahak screen par 'Apply for Loan' button daba kar ya bolkar abhi aavedan shuru kar sakte hain.\n"
+        "6. Hamesha pehle grahak ke prashna ka seedha aur vishwasniya uttar dein. Kabhi bhi bina sawal ka uttar diye default bhasha chunne ka message na doharayein."
     )
 
     if customer_id:
@@ -76,8 +80,8 @@ def build_system_prompt(customer_id: Optional[str] = None, step: Optional[int] =
 
     if step:
         step_contexts = {
-            1: "Context: Grahak se bhasha aur baat karne ka madhyam (awaaz ya text) chunne ko kahein.",
-            2: "Context: Grahak ko unke data consent (sahmat) ke baare mein saral Hindi mein batayein.",
+            1: "Context: Grahak aavedan ke Step 1 (Language & Mode) par hai. Agar grahak koi prashna pooch raha hai toh pehle uska uttar dein, fir bhasha ya madhyam chunne ko kahein.",
+            2: "Context: Grahak Step 2 par hai. Data consent (sahmat) ke baare mein saral Hindi mein batayein.",
             3: "Context: Identity verification — aavedan shuru karne ke liye pehchan patra ki pushti karein.",
             4: "Context: Aay aur dukan/vyapar ki jankari confirm karein.",
             5: "Context: Grahak ke anukool offer pesh karein.",

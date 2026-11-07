@@ -18,7 +18,7 @@ export async function checkBackendHealth(): Promise<boolean> {
 export async function processVoiceText(
   message: string,
   customerId: string = 'C00000',
-  journeyStep: number = 1
+  journeyStep?: number
 ): Promise<{ assistant_reply: string; audio_base64?: string; latency?: Record<string, number> }> {
   try {
     const res = await fetch(`${API_BASE}/voice/process-text`, {
@@ -27,7 +27,7 @@ export async function processVoiceText(
       body: JSON.stringify({
         message,
         customer_id: customerId,
-        journey_step: journeyStep,
+        journey_step: journeyStep ?? null,
         synthesize_audio: true,
       }),
     });
@@ -36,7 +36,7 @@ export async function processVoiceText(
   } catch (err) {
     console.warn('Backend process-text unreachable, using companion intelligence:', err);
     return {
-      assistant_reply: `नमस्ते! आपके प्रश्न के आधार पर हमने जानकारी प्राप्त कर ली है। आपके शुक्रवार के ₹2,800 कलेक्शन के आधार पर ₹500/हफ्ता सुरक्षित है।`,
+      assistant_reply: `नमस्ते! Paisa Saathi पर लोन लेने के 5 आसान चरण हैं: भाषा चुनाव, सहमति, पहचान पुष्टि, आय पुष्टि और ऑफर स्वीकारना।`,
     };
   }
 }
@@ -44,13 +44,15 @@ export async function processVoiceText(
 export async function processVoiceAudio(
   audioBlob: Blob,
   customerId: string = 'C00000',
-  journeyStep: number = 1
+  journeyStep?: number
 ): Promise<{ user_transcript: string; assistant_reply: string; audio_base64?: string }> {
   try {
     const formData = new FormData();
     formData.append('audio_file', audioBlob, 'recording.wav');
     formData.append('customer_id', customerId);
-    formData.append('journey_step', String(journeyStep));
+    if (journeyStep !== undefined && journeyStep !== null) {
+      formData.append('journey_step', String(journeyStep));
+    }
     formData.append('synthesize_audio', 'true');
 
     const res = await fetch(`${API_BASE}/voice/process-audio`, {

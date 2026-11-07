@@ -230,7 +230,7 @@ export const App: React.FC = () => {
         setIsDrawerOpen(true);
 
         // Send real audio to backend for STT → LLM → TTS pipeline
-        const res = await processVoiceAudio(audioBlob, persona.id, 1);
+        const res = await processVoiceAudio(audioBlob, persona.id);
 
         // Add user message with real transcript from Prisma STT
         const userMsg: ChatMessage = {
@@ -283,7 +283,7 @@ export const App: React.FC = () => {
     };
     setMessages((prev) => [...prev, userMsg]);
 
-    const res = await processVoiceText(text, persona.id, 1);
+    const res = await processVoiceText(text, persona.id);
     const assistantMsg: ChatMessage = {
       id: (Date.now() + 1).toString(),
       sender: 'assistant',
