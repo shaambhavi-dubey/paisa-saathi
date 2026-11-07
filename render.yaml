@@ -11,3 +11,4 @@ services:
         value: https://api.vachana.ai
       - key: PORT
         value: 8000
+

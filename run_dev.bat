@@ -9,3 +9,4 @@ start "Paisa Saathi Backend" cmd /k ".\venv\Scripts\python.exe -m uvicorn backen
 echo Starting Vite Frontend on http://localhost:5173 ...
 cd frontend
 npm run dev
+
