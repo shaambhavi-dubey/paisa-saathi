@@ -1,0 +1,15 @@
+{
+  "accuracy": 0.6115,
+  "precision": 0.2301,
+  "recall": 0.6667,
+  "f1_score": 0.3421,
+  "mean_lead_time_days": 100.0,
+  "customers_evaluated": 2000,
+  "detected_count": 878,
+  "ml_classifier": {
+    "roc_auc": 0.9589,
+    "precision": 0.8947,
+    "recall": 0.6711,
+    "accuracy": 0.938
+  }
+}

@@ -1,0 +1,15 @@
+{
+  "roc_auc": 1.0,
+  "precision": 1.0,
+  "recall": 1.0,
+  "f1_score": 1.0,
+  "feature_importances": {
+    "amount": 182.0,
+    "is_new_payee": 1.0,
+    "payee_fan_in": 116.0,
+    "payee_account_age": 32.0,
+    "payee_device_sharing": 6.0,
+    "sender_device_sharing": 0.0,
+    "amount_deviation_ratio": 7.0
+  }
+}

@@ -1,0 +1,13 @@
+services:
+  - type: web
+    name: paisa-sathi
+    runtime: docker
+    plan: free
+    region: singapore
+    envVars:
+      - key: GNANI_API_KEY
+        sync: false
+      - key: GNANI_BASE_URL
+        value: https://api.vachana.ai
+      - key: PORT
+        value: 8000

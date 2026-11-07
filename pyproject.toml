@@ -1,0 +1,46 @@
+[tool.setuptools.packages.find]
+include = ["backend*"]
+
+[project]
+name = "paisa-sathi"
+version = "0.1.0"
+description = "A Hindi voice banking companion for irregular-income customers. Built on Gnani AI Prisma, Evon, and Timbre."
+requires-python = ">=3.10"
+dependencies = [
+    # API & Server
+    "fastapi>=0.104.0",
+    "uvicorn[standard]>=0.24.0",
+    "python-dotenv>=1.0.0",
+    "python-multipart>=0.0.6",
+    "httpx>=0.25.0",
+
+    # ML & Data
+    "scikit-learn>=1.3.0",
+    "lightgbm>=4.1.0",
+    "shap>=0.43.0",
+    "pandas>=2.1.0",
+    "numpy>=1.25.0",
+    "ruptures>=1.1.8",
+
+    # RAG
+    "chromadb>=0.4.0",
+    "sentence-transformers>=2.2.0",
+
+    # Audio
+    "soundfile>=0.12.0",
+]
+
+[project.optional-dependencies]
+gnn = [
+    "torch>=2.1.0",
+    "torch-geometric>=2.4.0",
+]
+dev = [
+    "pytest>=7.4.0",
+    "pytest-asyncio>=0.23.0",
+    "ruff>=0.1.0",
+]
+
+[tool.pytest.ini_options]
+asyncio_mode = "auto"
+asyncio_default_fixture_loop_scope = "function"

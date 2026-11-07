@@ -1,0 +1,44 @@
+{
+  "roc_auc": 0.9889,
+  "accuracy": 0.96,
+  "classification_report": {
+    "0": {
+      "precision": 0.9818840579710145,
+      "recall": 0.9475524475524476,
+      "f1-score": 0.9644128113879004,
+      "support": 286.0
+    },
+    "1": {
+      "precision": 0.9330357142857143,
+      "recall": 0.9766355140186916,
+      "f1-score": 0.954337899543379,
+      "support": 214.0
+    },
+    "accuracy": 0.96,
+    "macro avg": {
+      "precision": 0.9574598861283644,
+      "recall": 0.9620939807855696,
+      "f1-score": 0.9593753554656397,
+      "support": 500.0
+    },
+    "weighted avg": {
+      "precision": 0.960976966873706,
+      "recall": 0.96,
+      "f1-score": 0.9601007491184452,
+      "support": 500.0
+    }
+  },
+  "feature_importances": {
+    "base_daily_income": 166.0,
+    "debt_burden_ratio": 154.0,
+    "savings_ratio": 332.0,
+    "est_monthly_surplus": 39.0,
+    "inflow_cv": 235.0,
+    "inflow_days_ratio": 39.0,
+    "max_dow_share": 124.0,
+    "max_dom_share": 35.0,
+    "persona_code": 0.0,
+    "tier": 7.0,
+    "age": 18.0
+  }
+}

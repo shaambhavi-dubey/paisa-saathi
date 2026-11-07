@@ -1,0 +1,21 @@
+{
+  "silhouette_score": 0.6713,
+  "cluster_to_persona_map": {
+    "2": "salaried",
+    "0": "farmer",
+    "1": "gig_worker",
+    "3": "vendor"
+  },
+  "features": [
+    "inflow_days_ratio",
+    "inflow_cv",
+    "max_dow_share",
+    "max_dom_share",
+    "log_mean_credit_amt",
+    "platform_inflow_share",
+    "mandi_inflow_share",
+    "savings_ratio"
+  ],
+  "adjusted_rand_index": 0.9976,
+  "ground_truth_accuracy": 0.999
+}
